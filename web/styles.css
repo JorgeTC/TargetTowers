@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#game-container,
+#reference-game-container {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-container-won {
+    border-radius: 1%;
+    border: 3px solid green
+}
+
+.column {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.piece {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.piece:hover {
+    opacity: 0.8;
+}
+
+.piece.selected {
+    border: 2px solid black;
+    margin: 3px;
+}
+
+#reference-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transform-origin: top left;
+}
+
+#reference-game-container {
+    border: 2px solid black;
+    border-radius: 1%;
+    transform-origin: top left;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+#reference-game-container .column {
+    width: 60px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    #reference-container {
+        transform: scale(0.6); /* Scale the reference container to 80% on medium screens */
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+    #reference-container {
+        transform: scale(0.8); /* Scale the reference container to 80% on medium screens */
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    #reference-container {
+        transform: scale(1); /* Reset the scale on larger screens */
+    }
+}
